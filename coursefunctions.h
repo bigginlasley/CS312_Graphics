@@ -60,6 +60,7 @@ void GameOfLife(Buffer2D<PIXEL> & target)
                 {
                         // Clicking the mouse changes a pixel's color
                         SDL_GetMouseState(&mouseX, &mouseY);
+                        mouseY = S_HEIGHT - mouseY;
                         int gridX = mouseX / scaleFactor;
                         int gridY = mouseY / scaleFactor;
                         if(grid[gridY][gridX] == 1)
@@ -75,11 +76,12 @@ void GameOfLife(Buffer2D<PIXEL> & target)
                 }
         }
 
+        int otherGrid[gridH][gridW];
 
         // Advance the simulation after pressing 'g'
         if(!isSetup)
         {
-                // Your Code goes here
+             
 
                 // Wait a half-second between iterations
                 SDL_Delay(500);
